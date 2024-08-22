@@ -1,7 +1,6 @@
---- 
-  host : all
-  become : true
-  tasks : 
+-  name: docker
+   host : all
+   tasks : 
    - name : update the package
      command : sudo apt update -y
      
