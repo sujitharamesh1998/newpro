@@ -1,15 +1,15 @@
 --- 
   hosts : all
-  become: true
-  tasks: 
-   - name: update the package
-     command: sudo apt update -y
+  become : true
+  tasks : 
+   - name : update the package
+     command : sudo apt update -y
      
-   - name: install docker
-     command: sudo apt install docker.io -y
+   - name : install docker
+     command : sudo apt install docker.io -y
      
-   - name: start docker
-     command: sudo systemctl start docker
+   - name : start docker
+     command : sudo systemctl start docker
      
-   - name: docker build
-     command: docker run -itd -p 8089:8080 sujitha202301/project12
+   - name : docker build
+     command : docker run -itd -p 8089:8080 sujitha202301/project12
