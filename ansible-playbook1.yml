@@ -1,15 +1,20 @@
----
+- name : Configure Docker on EC2 Instances
   hosts : all
-  become : true
+  become: true
+  connection : ssh
   tasks : 
-  - name : update the package
-    command : sudo apt update -y
-     
-  - name : install docker
-    command : sudo apt install docker.io -y
-     
-  - name : start docker
+  - name: updating apt
+    command : sudo apt-get update
+
+  - name : Install Docker
+    command : sudo apt-get install -y docker.io
+    become : yes
+    become_user : root
+
+  - name : Start Docker Service
     command : sudo systemctl start docker
-     
-  - name : docker build
-    command : docker run -itd -p 8089:8080 sujitha202301/project12
+    become : yes
+    become_user : root
+
+  - name: Deploy Docker Container
+    command: docker run -itd -p 8084:8081 sujitha202301/project12
