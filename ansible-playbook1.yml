@@ -1,5 +1,6 @@
 ---
-  host : all
+  hosts : all
+  become : true
   tasks : 
   - name : update the package
     command : sudo apt update -y
